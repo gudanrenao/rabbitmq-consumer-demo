@@ -28,6 +28,7 @@ public class RabbitFactoryConfig {
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory);
         factory.setMessageConverter(new Jackson2JsonMessageConverter());
+        //签收模式 NONE=自动应答  MANUAL=手动应答 AUTO=没有发生异常，自动应答
         factory.setAcknowledgeMode(AcknowledgeMode.NONE);
         factory.setAutoStartup(true);
         return factory;
